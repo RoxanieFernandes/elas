@@ -6,12 +6,6 @@ describe("teste da classe Profissional", () => {
     expect(profissional instanceof Profissional).toBe(true);
   });
 
-  test("deve cadastrar uma habilidade com sucesso", () => {
-    const profissional = new Profissional();
-    profissional.adicionarHabilidade("Javascript");
-    expect(profissional.habilidades).toEqual(["Javascript"]);
-  });
-
   test("deve cadastrar uma experiencia com sucesso", () => {
     const profissional = new Profissional();
     profissional.adicionarExperiencia({

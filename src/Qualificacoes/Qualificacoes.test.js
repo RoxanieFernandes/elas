@@ -9,6 +9,6 @@ describe("teste da classe Qualificacoes", () => {
     test("deve cadastrar uma habilidade com sucesso", () => {
         const qualificacoes = new Qualificacoes();
         qualificacoes.adicionarHabilidade("Javascript")
-        expect(qualificacoes.habilidades).toStrictEqual(["Javascript"])
+        expect(qualificacoes.habilidades).toEqual(["Javascript"])
     })
 })

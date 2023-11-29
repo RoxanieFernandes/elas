@@ -6,9 +6,5 @@ describe("teste da classe Experiencia", () => {
         expect(experiencia instanceof Experiencia).toBe(true)
     })
 
-    test("deve cadastrar uma habilidade com sucesso", () => {
-        const experiencia = new Experiencia();
-        experiencia.adicionarHabilidade("Javascript")
-        expect(experiencia.habilidades).toStrictEqual(["Javascript"])
-    })
+   
 })
