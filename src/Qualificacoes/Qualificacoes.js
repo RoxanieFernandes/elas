@@ -1,10 +1,8 @@
 class Qualificacoes {
-  nivel
-  competencia
-  
-  constructor(nivel, competencia) {
+ 
+  constructor(nivel, area) {
     this.nivel = nivel;
-    this.competencia = competencia;
+    this.area = area;
     this.habilidades = [];
   }
 
@@ -15,7 +13,3 @@ class Qualificacoes {
 
 module.exports = Qualificacoes;
 
-const qualificacoes1 = new Qualificacoes("Júnior", "Front-End")
-qualificacoes1.adicionarHabilidade("Javascript")
-qualificacoes1.adicionarHabilidade("CSS")
-console.log(qualificacoes1);

@@ -1,61 +1,42 @@
-const ResponsavelEmpresa = require("../ResponsavelEmpresa/ResponsavelEmpresa.js");
-class Empresa {
-  nome;
-  #cnpj;
-  localizacao;
-  tipo;
-  site;
-  descricao;
-  #email;
-  #senha;
-  responsavel;
+const Usuario = require("../Usuario/Usuario");
 
-  constructor(nome, cnpj, localizacao, tipo, site, descricao, responsavel) {
-    this.nome = nome;
-    this.#cnpj = cnpj;
-    this.localizacao = localizacao;
-    this.tipo = tipo;
-    this.site = site;
-    this.descricao = descricao;
-    // this.#email = email ***** criar método para cadastrar usuário e senha com verificação de senha e regex
-    // this.#senha = senha
-    this.responsavel = responsavel;
+class Empresa{
+  #cnpj;
+  listaDeVagas;
+
+  constructor(usuario, nomeEmpresa, cnpj, localizacao, categoriaEmpresa, site, descricao, responsavel) {
+    if (!(usuario instanceof Usuario)) {
+      throw new Error("Erro no cadastro. Usuário deve ser do tipo Usuario")
+    }
+      this.usuario = usuario
+      this.nomeEmpresa = nomeEmpresa;
+      this.#cnpj = cnpj;
+      this.localizacao = localizacao;
+      this.categoriaEmpresa = categoriaEmpresa;
+      this.site = site;
+      this.descricao = descricao;
+      this.responsavel = responsavel;
+      this.listaDeVagas = [];
   }
 
   getCnpj() {
     return this.#cnpj;
   }
 
-  getEmail() {
-    return this.#email;
+  criarVaga(vaga) {
+    this.listaDeVagas.push(vaga);
   }
 
-  getSenha() {
-    return this.#senha;
-  }
+  listarVagas() {}
 
-  setSenha(novaSenha) {
-    this.#senha = novaSenha;
-  }
+  encerrarVaga() {}
 }
 
 module.exports = Empresa;
 
-const responsavel = new ResponsavelEmpresa(
-  "Maria Fernanda",
-  "Gerente",
-  "mariafernanda@email.com",
-  "(11)91111-1111"
-);
+// const user = new Usuario();
+// user.criarUsuario("email@email", "huahuishaiu", "Profissional");
 
-const empresaX = new Empresa(
-  "XYZ Tecnologia",
-  "11.111.111/0001-00",
-  "São Paulo/SP",
-  "Startup",
-  "www.xyztecnologia.com",
-  "Empresa de tecnologia de aplicativos financeiros",
-  responsavel
-);
-
-console.log(empresaX);
+// const empresa = new Empresa(user,"EmpresaX","1234564578", "Arujá/SP", "Startup", "www.empresa.com", "jjfkjsnfjksdfjksdfjsdjfsdjkfskdjhfjkshfjksdhf", "responsavel1")
+// // console.log(empresa.usuario.getEmail());
+// console.log(empresa);

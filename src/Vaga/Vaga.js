@@ -1,14 +1,13 @@
-const Qualificacoes = require("../Qualificacoes/Qualificacoes");
-
 class Vaga {
 
-  constructor(cargo, salario, modalidade, descricaoDoCargo, qualificacoes) {
+  constructor(cargo, salario, modalidade, descricaoDoCargo, qualificacoes, status) {
     this.cargo = cargo;
     this.salario = salario;
     this.modalidade = modalidade;
     this.beneficios = [];
     this.descricaoDoCargo = descricaoDoCargo
     this.qualificacoes = qualificacoes
+    this.status = status
   }
 
   cadastrarBeneficio(beneficio){
@@ -18,12 +17,3 @@ class Vaga {
 
 module.exports = Vaga;
 
-const qualificacoes1 = new Qualificacoes("Júnior", "Front-End")
-qualificacoes1.adicionarHabilidade("Javascript")
-qualificacoes1.adicionarHabilidade("CSS")
-
-const vaga1 = new Vaga("Desenvolvedor", 4000, "Remoto", "Desenvolver páginas web com equipe colaborativa", qualificacoes1 )
-vaga1.cadastrarBeneficio("Vale-Alimentação")
-vaga1.cadastrarBeneficio("GimPass")
-
-console.log(vaga1);
