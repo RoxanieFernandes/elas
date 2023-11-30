@@ -20,3 +20,5 @@ class ResponsavelEmpresa {
 }
 
 module.exports = ResponsavelEmpresa;
+
+const responsavel = new ResponsavelEmpresa("Maria Fernanda", "Gerente", "mariafernanda@email.com", "(11)91111-1111")
