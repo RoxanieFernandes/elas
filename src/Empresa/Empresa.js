@@ -5,8 +5,12 @@ class Empresa{
   listaDeVagas;
 
   constructor(usuario, nomeEmpresa, cnpj, localizacao, categoriaEmpresa, site, descricao, responsavel) {
+
     if (!(usuario instanceof Usuario)) {
       throw new Error("Erro no cadastro. Usuário deve ser do tipo Usuario")
+    }
+    if ((usuario.getTipoUsuario() !== "Empresa" )) {
+      throw new Error("Erro no cadastro. Usuário deve ser do tipo Empresa")
     }
       this.usuario = usuario
       this.nomeEmpresa = nomeEmpresa;
@@ -34,9 +38,3 @@ class Empresa{
 
 module.exports = Empresa;
 
-// const user = new Usuario();
-// user.criarUsuario("email@email", "huahuishaiu", "Profissional");
-
-// const empresa = new Empresa(user,"EmpresaX","1234564578", "Arujá/SP", "Startup", "www.empresa.com", "jjfkjsnfjksdfjksdfjsdjfsdjkfskdjhfjkshfjksdhf", "responsavel1")
-// // console.log(empresa.usuario.getEmail());
-// console.log(empresa);

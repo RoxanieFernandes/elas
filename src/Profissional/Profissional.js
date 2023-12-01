@@ -1,7 +1,14 @@
+const Usuario = require ("../Usuario/Usuario.js")
+const Qualificacoes = require ("../Qualificacoes/Qualificacoes.js")
+
 class Profissional {
   constructor(usuario, nomeCompleto, telefone, localizacao, sobre, curriculo, qualificacoes) {
+
     if (!(usuario instanceof Usuario)) {
-      throw new Error("Erro no cadastro. Usuário deve ser do tipo Usuario")
+      throw new Error("Erro no cadastro. Usuário deve ser instância da classe Usuario")
+    }
+    if ((usuario.getTipoUsuario() !== "Profissional" )) {
+      throw new Error("Erro no cadastro. Usuário deve ser do tipo Profissional")
     }
       this.usuario = usuario
       this.nomeCompleto = nomeCompleto;
@@ -28,3 +35,4 @@ class Profissional {
 }
 
 module.exports = Profissional;
+

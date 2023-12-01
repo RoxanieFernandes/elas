@@ -15,7 +15,7 @@ class Usuario {
     this.#senha = novaSenha;
   }
 
-  getTipo() {
+  getTipoUsuario() {
     return this.#tipo;
   }
 
@@ -36,5 +36,3 @@ class Usuario {
 
 module.exports = Usuario;
 
-const user = new Usuario();
-user.criarUsuario("email@email", "huahuishaiu", "Profissional");
