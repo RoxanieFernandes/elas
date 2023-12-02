@@ -3,6 +3,12 @@ class Usuario {
   #senha;
   #tipo;
 
+  constructor (email, senha, tipo) {
+    this.#email = email
+    this.#senha = senha
+    this.#tipo = tipo
+  }
+
   getEmail() {
     return this.#email;
   }
@@ -35,4 +41,5 @@ class Usuario {
 }
 
 module.exports = Usuario;
+
 
