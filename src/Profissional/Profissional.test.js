@@ -1,15 +1,18 @@
 const Qualificacoes = require("../Qualificacoes/Qualificacoes.js");
 const Usuario = require("../Usuario/Usuario.js");
+const Experiencia = require("../Experiencia/Experiencia.js");
 const Profissional = require("./Profissional.js");
 
 describe("teste da classe Profissional", () => {
   let profissional;
   let usuario;
   let qualificacao;
+  let redeSocial;
+  let experiencia;
 
   beforeEach(() => {
     usuario = new Usuario("email@email", "12345", "Profissional");
-    qualificacao = new Qualificacoes("junior","front-end");
+    qualificacao = new Qualificacoes("junior", "front-end");
     profissional = new Profissional(
       usuario,
       "Laura Sampaio",
@@ -19,49 +22,78 @@ describe("teste da classe Profissional", () => {
       "link cv",
       qualificacao
     );
+    redeSocial = "www.linkedin.com/profissional";
+    experiencia = new Experiencia(
+      "EmpresaX",
+      "Desenvolvedor",
+      "01/2022",
+      "01/2023",
+      "descricao de cargo",
+      qualificacao
+    );
   });
 
   test("Deve retornar se a instância Profissional está sendo criada com dados válidos", () => {
     expect(profissional instanceof Profissional).toBe(true);
     expect(profissional.usuario instanceof Usuario).toBe(true);
+    expect(profissional.qualificacoes instanceof Qualificacoes).toBe(true);
   });
 
   test("Erro ao tentar instanciar Profissional com dados inválidos", () => {
+    expect(() => {
+      new Profissional(
+        "usuario",
+        "Laura Sampaio",
+        "(11)11122223",
+        "Arujá/SP",
+        "sobre profissional",
+        "link cv",
+        qualificacao
+      );
+    }).toThrow(
+      "Erro no cadastro, usuario deve ser instância da classe Usuario"
+    );
+  });
+
+  test("Erro ao tentar instanciar Profissional com dados inválidos", () => {
+    const usuarioInvalido = new Usuario("email@email", "12345", "Estudande");
     expect(
       () =>
-        (profErrado = new Profissional(
-          "usuario",
+        new Profissional(
+          usuarioInvalido,
           "Laura Sampaio",
           "(11)11122223",
           "Arujá/SP",
           "sobre profissional",
           "link cv",
           qualificacao
-        ))
-    ).toTrow("Erro no cadastro, usuario deve ser instância da classe Usuario");
+        )
+    ).toThrow("Erro no cadastro, usuario deve ser do tipo Profissional");
   });
 
-  // test("deve cadastrar uma experiencia com sucesso", () => {
-  //   profissional.adicionarExperiencia({
-  //     nivel: "Senior",
-  //     competencia: "Full stack",
-  //     habilidades: ["Javascript", "CSS"],
-  //     empresa: "BR Servicos",
-  //     cargo: "Financeiro",
-  //     dataInicio: "01/2021",
-  //     dataSaida: "03/2023",
-  //   });
+  test("Erro ao tentar instanciar Profissional com dados inválidos", () => {
+    expect(() => {
+      new Profissional(
+        usuario,
+        "Laura Sampaio",
+        "(11)11122223",
+        "Arujá/SP",
+        "sobre profissional",
+        "link cv",
+        "qualificacao"
+      );
+    }).toThrow(
+      "Erro no cadastro, qualificacoes deve ser instância da classe Qualificacoes"
+    );
+  });
 
-  //   expect(profissional.experiencias).toEqual([
-  //     {
-  //       nivel: "Senior",
-  //       competencia: "Full stack",
-  //       habilidades: ["Javascript", "CSS"],
-  //       empresa: "BR Servicos",
-  //       cargo: "Financeiro",
-  //       dataInicio: "01/2021",
-  //       dataSaida: "03/2023",
-  //     },
-  //   ]);
-  // });
+  test("deve cadastrar rede social com sucesso", () => {
+    profissional.adicionarRedeSocial(redeSocial);
+    expect(profissional.redesSociais).toContain(redeSocial);
+  });
+
+  test("deve cadastrar uma experiencia com sucesso", () => {
+    profissional.adicionarExperiencia(experiencia);
+    expect(profissional.experiencias).toContain(experiencia);
+  });
 });

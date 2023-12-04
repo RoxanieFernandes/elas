@@ -34,7 +34,6 @@ class Profissional {
   }
 
   candidatarEmVaga() {}
-  listarCandidaturas() {}
 }
 
 module.exports = Profissional;

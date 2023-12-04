@@ -17,3 +17,5 @@ class Experiencia {
 
 module.exports = Experiencia;
 
+const quali = new Qualificacoes ("junior", "front-ent")
+const exp = new Experiencia ("empresa", "dev", "01/2021", "01/2023", "desc", quali)
