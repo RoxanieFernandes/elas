@@ -1,5 +1,5 @@
-# dependencias
+# dependencies
 /node_modules
 
-# testes
+# testing
 /coverage
