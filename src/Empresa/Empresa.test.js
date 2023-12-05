@@ -8,8 +8,10 @@ describe("Teste da classe Empresa", () => {
   let usuario;
   let responsavel;
   let empresa;
+  let empresa2;
   let qualificacao;
   let vaga;
+  let vaga2;
 
   beforeEach(() => {
     usuario = new Usuario("email@email", "12456788", "Empresa");
@@ -29,8 +31,35 @@ describe("Teste da classe Empresa", () => {
       "Empresa de tecnologia de aplicativos financeiros",
       responsavel
     );
+    empresa2 = new Empresa(
+      usuario,
+      "XYZ Tecnologia",
+      "22.222.222/0001-00",
+      "São Paulo/SP",
+      "Startup",
+      "www.xyztecnologia.com",
+      "Empresa de tecnologia de aplicativos financeiros",
+      responsavel
+    );
     qualificacao = new Qualificacoes("Junior", "Front-end");
-    vaga = new Vaga("Desenvolvedor", 5000, "remoto", "descricao", qualificacao);
+    vaga = new Vaga(
+      1,
+      "11.111.111/0001-00",
+      "Desenvolvedor",
+      5000,
+      "remoto",
+      "descricao",
+      qualificacao
+    );
+    vaga2 = new Vaga(
+      2,
+      "22.222.222/0001-00",
+      "Desenvolvedor",
+      5000,
+      "remoto",
+      "descricao",
+      qualificacao
+    );
   });
 
   test("Deve verificar se a instâcia Empresa está sendo criada", () => {
@@ -112,7 +141,13 @@ describe("Teste da classe Empresa", () => {
 
   test("deve encerrar vaga com sucesso", () => {
     empresa.encerrarVaga(vaga);
-    expect(vaga.getStatus()).toEqual("Encerrada");
+    expect(vaga.status).toEqual("Encerrada");
+  });
+
+  test("Erro ao tentar encerrar vaga cadastrada por outra empresa", () => {
+    expect(() => {
+      empresa.encerrarVaga(vaga2);
+    }).toThrow("Erro: cadastrada por outra empresa");
   });
 
   test("Erro ao tentar encerrar vaga já encerrada", () => {

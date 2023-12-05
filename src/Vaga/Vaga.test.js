@@ -7,7 +7,7 @@ describe("teste da classe Vaga", () => {
 
   beforeEach(() => {
     qualificacao = new Qualificacoes("Junior", "Front-end");
-    vaga = new Vaga("Desenvolvedor", 5000, "remoto", "descricao", qualificacao);
+    vaga = new Vaga(1,"11.111.111/0001-00","Desenvolvedor", 5000, "remoto", "descricao", qualificacao);
   });
 
   test("Deve retornar se a instância Vaga está sendo criada", () => {
@@ -22,6 +22,8 @@ describe("teste da classe Vaga", () => {
     expect(
       () =>
         (vaga = new Vaga(
+          1,
+          "11.111.111/0001-00",
           "Desenvolvedor",
           5000,
           "remoto",

@@ -17,7 +17,9 @@ class Empresa {
     responsavel
   ) {
     if (!(usuario instanceof Usuario)) {
-      throw new Error("Erro no cadastro, usuario deve ser instância da classe Usuario");
+      throw new Error(
+        "Erro no cadastro, usuario deve ser instância da classe Usuario"
+      );
     }
     if (usuario.getTipoUsuario() !== "Empresa") {
       throw new Error("Erro no cadastro, usuario deve ser do tipo Empresa");
@@ -50,6 +52,9 @@ class Empresa {
   }
 
   encerrarVaga(vaga) {
+    if (vaga.cnpjEmpresa !== this.getCnpj()) {
+      throw new Error("Erro: cadastrada por outra empresa");
+    }
     if (vaga.getStatus() !== "Vaga em andamento") {
       throw new Error("Erro: vaga já consta como encerrada");
     }
