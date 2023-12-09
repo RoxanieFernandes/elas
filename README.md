@@ -32,8 +32,8 @@ Representa a experiência profissional de um usuário. Contém informações com
 A classe Vaga é responsável por representar uma vaga de emprego. Ela contém informações como cargo, salário, modalidade, descrição do cargo e qualificações necessárias.
 
 ## Diagrama UML
+![Diagrama UML](image.png)
 
-**ADICIONAR AQUI**
 ## Rodando localmente
 
 Clone o projeto
@@ -57,9 +57,7 @@ Instale as dependências
 ## Testes
 O projeto possui cobertura de testes completa utilizando o framework Jest. Cada classe e funcionalidade foram testadas para garantir o correto funcionamento do sistema.
 
-**ADICIONAR PRINT DOS TESTES RODADOS**
-
-
+![Testes](image-1.png)
 
 **Rodando os testes**
 
@@ -69,9 +67,22 @@ Para rodar os testes, rode o seguinte comando
   npm test
 ```
 
+## Melhorias Futuras
 
-## Possíveis Melhorias
+* Criação de uma interface para o usuário final.
+* Melhorias relacionadas a: filtro de busca e maior proteção de dados.
+* Criação de uma banco de dados para armazenamento dos registros cadastrados na plataforma.
+
 ## Considerações Finais
+
+Durante a concepção e impementação deste projeto, enfrentei diversos desafios que me permitiram crescer e evoluir significativamente. Um dos pricipais obstáculos foi a criação do método *candidatarEmVaga*, onde tive dificuldade de desenvolver a lógica à ser aplicada, no entanto através de pesquisas em materiais de aulas anteriores, pude superá-lo.
+
+Participar da {reprograma} foi uma experiência enriquecedora, pois não apenas pude aplicar os conhecimentos adquiridos durante o curso, mas também desenvolvi habilidades de comunicação, que são cruciais para o meu desenvolvimento profissional. Este projeto me possibilitou enxergar de maneira mais clara a importância da colaboração, da persistência e da criatividade no processo de desenvolvimento de soluções.
+
+Por fim, expresso minha profunda gratidão à equipe da {reprograma}, as professoras que me orientaram e as colegas que ofereceram suporte ao longo dessa jornada. Suas contribuições foram inestimáveis para o sucesso deste projeto.
+
+Este projeto não apenas representa um marco em minha jornada pessoal, mas também me motiva a continuar buscando novos desafios e oportunidades de crescimento.
+
 ## Autores
 
 - [@RoxanieFernandes](https://www.github.com/RoxanieFernandes)

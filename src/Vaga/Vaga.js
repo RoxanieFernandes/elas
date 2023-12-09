@@ -1,6 +1,5 @@
 const Qualificacoes = require("../Qualificacoes/Qualificacoes.js");
 class Vaga {
-  // #id;
 
   static listaGeralDeVagas = [];
 
@@ -29,10 +28,6 @@ class Vaga {
     this.status = "Vaga em andamento";
     this.constructor.listaGeralDeVagas.push({ id: this.id, qtdCandidatos: 0 });
   }
-
-  // getId() {
-  //   return this.#id;
-  // }
 
   getStatus() {
     return this.status;
